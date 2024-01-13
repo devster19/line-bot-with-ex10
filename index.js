@@ -42,8 +42,6 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 
 // simple reply function
 const replyText = (token, texts) => {
-  texts = Array.isArray(texts) ? texts : [texts];
-
   const replyMessages = texts.map((text) => {
     switch (true) {
       case text.includes('อังกฤษ'):
