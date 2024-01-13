@@ -35,10 +35,31 @@ app.post('/webhook', line.middleware(config), (req, res) => {
 // simple reply function
 const replyText = (token, texts) => {
   texts = Array.isArray(texts) ? texts : [texts];
-  return client.replyMessage(
-    token,
-    texts.map((text) => ({ type: 'text', text }))
-  );
+
+  const replyMessages = texts.map((text) => {
+    switch (true) {
+      case text.includes('อังกฤษ'):
+        return { type: 'text', text: 'พูดได้สิ สบายมาก' };
+      case text.includes('สีเหลือง'):
+        return { type: 'text', text: 'เยลโล่วว' };
+      case text.includes('มะม่วง'):
+        return { type: 'text', text: 'แมงโก้' };
+      case text.includes('มีด'):
+        return { type: 'text', text: 'อีโต้' };
+      case text.includes('ไฟแช๊ค'):
+        return { type: 'text', text: 'ซิปโป้' };
+      case text.includes('ชุดชั้นใน'):
+        return { type: 'text', text: 'วาโก้' };
+      case text.includes('เฉี๊ยบ'):
+      case text.includes('แจ๋ว'):
+      case text.includes('โดดเด่น'):
+        return { type: 'text', text: 'แต๊งกิ้วววว' };
+      default:
+        return { type: 'text', text };
+    }
+  });
+
+  return client.replyMessage(token, replyMessages);
 };
 
 // callback function to handle a single event
