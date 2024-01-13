@@ -1,5 +1,5 @@
-# line-bot-nodejs-starter
-starter point to create new line bot project
+# line-bot-nodejs-starter + EX10 Chat Center
+Connecting Node.js Line Bot to EX10 Chat Center Platform - A Simple Demo
 
 ## How it work
 Start express server to handle webhook from LINE
@@ -29,5 +29,5 @@ path/to/ngrok http 3000
 ```
 config webhook url in developer console then enjoy your bot!
 
-## Author
+## Credit Author
 Sitthi Thiammekha
