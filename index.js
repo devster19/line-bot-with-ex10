@@ -18,13 +18,6 @@ app.post('/webhook', line.middleware(config), (req, res) => {
   // handle events separately
   Promise.all(
     req.body.events.map((event) => {
-      // check verify webhook event
-      if (
-        event.replyToken === '00000000000000000000000000000000' ||
-        event.replyToken === 'ffffffffffffffffffffffffffffffff'
-      ) {
-        return;
-      }
       // NOTE return result for EX10
       const result = handleEvent(event);
       const resp = {
@@ -63,266 +56,266 @@ const replyText = (token, texts) => {
       case text.includes('flex'):
       case text.includes('เฟล็ก'):
         return {
-          'type': 'flex',
-          'altText': 'Flex Message',
-          'contents': {
-            'type': 'carousel',
-            'contents': [
+          type: 'flex',
+          altText: 'Flex Message',
+          contents: {
+            type: 'carousel',
+            contents: [
               {
-                'type': 'bubble',
-                'size': 'micro',
-                'hero': {
-                  'type': 'image',
-                  'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip10.jpg',
-                  'size': 'full',
-                  'aspectMode': 'cover',
-                  'aspectRatio': '320:213',
+                type: 'bubble',
+                size: 'micro',
+                hero: {
+                  type: 'image',
+                  url: 'https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip10.jpg',
+                  size: 'full',
+                  aspectMode: 'cover',
+                  aspectRatio: '320:213',
                 },
-                'body': {
-                  'type': 'box',
-                  'layout': 'vertical',
-                  'contents': [
+                body: {
+                  type: 'box',
+                  layout: 'vertical',
+                  contents: [
                     {
-                      'type': 'text',
-                      'text': 'Brown Cafe',
-                      'weight': 'bold',
-                      'size': 'sm',
-                      'wrap': true,
+                      type: 'text',
+                      text: 'Brown Cafe',
+                      weight: 'bold',
+                      size: 'sm',
+                      wrap: true,
                     },
                     {
-                      'type': 'box',
-                      'layout': 'baseline',
-                      'contents': [
+                      type: 'box',
+                      layout: 'baseline',
+                      contents: [
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
                         },
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
                         },
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
                         },
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
                         },
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png',
                         },
                         {
-                          'type': 'text',
-                          'text': '4.0',
-                          'size': 'xs',
-                          'color': '#8c8c8c',
-                          'margin': 'md',
-                          'flex': 0,
+                          type: 'text',
+                          text: '4.0',
+                          size: 'xs',
+                          color: '#8c8c8c',
+                          margin: 'md',
+                          flex: 0,
                         },
                       ],
                     },
                     {
-                      'type': 'box',
-                      'layout': 'vertical',
-                      'contents': [
+                      type: 'box',
+                      layout: 'vertical',
+                      contents: [
                         {
-                          'type': 'box',
-                          'layout': 'baseline',
-                          'spacing': 'sm',
-                          'contents': [
+                          type: 'box',
+                          layout: 'baseline',
+                          spacing: 'sm',
+                          contents: [
                             {
-                              'type': 'text',
-                              'text': 'ใจสั่นเพราะกาแฟหรือแกฟะ',
-                              'wrap': true,
-                              'color': '#8c8c8c',
-                              'size': 'xs',
-                              'flex': 5,
+                              type: 'text',
+                              text: 'ใจสั่นเพราะกาแฟหรือแกฟะ',
+                              wrap: true,
+                              color: '#8c8c8c',
+                              size: 'xs',
+                              flex: 5,
                             },
                           ],
                         },
                       ],
                     },
                   ],
-                  'spacing': 'sm',
-                  'paddingAll': '13px',
+                  spacing: 'sm',
+                  paddingAll: '13px',
                 },
               },
               {
-                'type': 'bubble',
-                'size': 'micro',
-                'hero': {
-                  'type': 'image',
-                  'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip11.jpg',
-                  'size': 'full',
-                  'aspectMode': 'cover',
-                  'aspectRatio': '320:213',
+                type: 'bubble',
+                size: 'micro',
+                hero: {
+                  type: 'image',
+                  url: 'https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip11.jpg',
+                  size: 'full',
+                  aspectMode: 'cover',
+                  aspectRatio: '320:213',
                 },
-                'body': {
-                  'type': 'box',
-                  'layout': 'vertical',
-                  'contents': [
+                body: {
+                  type: 'box',
+                  layout: 'vertical',
+                  contents: [
                     {
-                      'type': 'text',
-                      'text': "Brow&Cony's Restaurant",
-                      'weight': 'bold',
-                      'size': 'sm',
-                      'wrap': true,
+                      type: 'text',
+                      text: "Brow&Cony's Restaurant",
+                      weight: 'bold',
+                      size: 'sm',
+                      wrap: true,
                     },
                     {
-                      'type': 'box',
-                      'layout': 'baseline',
-                      'contents': [
+                      type: 'box',
+                      layout: 'baseline',
+                      contents: [
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
                         },
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
                         },
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
                         },
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
                         },
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png',
                         },
                         {
-                          'type': 'text',
-                          'text': '4.0',
-                          'size': 'sm',
-                          'color': '#8c8c8c',
-                          'margin': 'md',
-                          'flex': 0,
+                          type: 'text',
+                          text: '4.0',
+                          size: 'sm',
+                          color: '#8c8c8c',
+                          margin: 'md',
+                          flex: 0,
                         },
                       ],
                     },
                     {
-                      'type': 'box',
-                      'layout': 'vertical',
-                      'contents': [
+                      type: 'box',
+                      layout: 'vertical',
+                      contents: [
                         {
-                          'type': 'box',
-                          'layout': 'baseline',
-                          'spacing': 'sm',
-                          'contents': [
+                          type: 'box',
+                          layout: 'baseline',
+                          spacing: 'sm',
+                          contents: [
                             {
-                              'type': 'text',
-                              'text': 'ที่นั่งยังว่างคนข้างๆไม่มี',
-                              'wrap': true,
-                              'color': '#8c8c8c',
-                              'size': 'xs',
-                              'flex': 5,
+                              type: 'text',
+                              text: 'ที่นั่งยังว่างคนข้างๆไม่มี',
+                              wrap: true,
+                              color: '#8c8c8c',
+                              size: 'xs',
+                              flex: 5,
                             },
                           ],
                         },
                       ],
                     },
                   ],
-                  'spacing': 'sm',
-                  'paddingAll': '13px',
+                  spacing: 'sm',
+                  paddingAll: '13px',
                 },
               },
               {
-                'type': 'bubble',
-                'size': 'micro',
-                'hero': {
-                  'type': 'image',
-                  'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip12.jpg',
-                  'size': 'full',
-                  'aspectMode': 'cover',
-                  'aspectRatio': '320:213',
+                type: 'bubble',
+                size: 'micro',
+                hero: {
+                  type: 'image',
+                  url: 'https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip12.jpg',
+                  size: 'full',
+                  aspectMode: 'cover',
+                  aspectRatio: '320:213',
                 },
-                'body': {
-                  'type': 'box',
-                  'layout': 'vertical',
-                  'contents': [
+                body: {
+                  type: 'box',
+                  layout: 'vertical',
+                  contents: [
                     {
-                      'type': 'text',
-                      'text': 'Tata',
-                      'weight': 'bold',
-                      'size': 'sm',
+                      type: 'text',
+                      text: 'Tata',
+                      weight: 'bold',
+                      size: 'sm',
                     },
                     {
-                      'type': 'box',
-                      'layout': 'baseline',
-                      'contents': [
+                      type: 'box',
+                      layout: 'baseline',
+                      contents: [
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
                         },
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
                         },
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
                         },
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gold_star_28.png',
                         },
                         {
-                          'type': 'icon',
-                          'size': 'xs',
-                          'url': 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png',
+                          type: 'icon',
+                          size: 'xs',
+                          url: 'https://scdn.line-apps.com/n/channel_devcenter/img/fx/review_gray_star_28.png',
                         },
                         {
-                          'type': 'text',
-                          'text': '4.0',
-                          'size': 'sm',
-                          'color': '#8c8c8c',
-                          'margin': 'md',
-                          'flex': 0,
+                          type: 'text',
+                          text: '4.0',
+                          size: 'sm',
+                          color: '#8c8c8c',
+                          margin: 'md',
+                          flex: 0,
                         },
                       ],
                     },
                     {
-                      'type': 'box',
-                      'layout': 'vertical',
-                      'contents': [
+                      type: 'box',
+                      layout: 'vertical',
+                      contents: [
                         {
-                          'type': 'box',
-                          'layout': 'baseline',
-                          'spacing': 'sm',
-                          'contents': [
+                          type: 'box',
+                          layout: 'baseline',
+                          spacing: 'sm',
+                          contents: [
                             {
-                              'type': 'text',
-                              'text': 'แก้วมีหลายใบแต่หลายใจไม่เคย',
-                              'wrap': true,
-                              'color': '#8c8c8c',
-                              'size': 'xs',
-                              'flex': 5,
+                              type: 'text',
+                              text: 'แก้วมีหลายใบแต่หลายใจไม่เคย',
+                              wrap: true,
+                              color: '#8c8c8c',
+                              size: 'xs',
+                              flex: 5,
                             },
                           ],
                         },
                       ],
                     },
                   ],
-                  'spacing': 'sm',
-                  'paddingAll': '13px',
+                  spacing: 'sm',
+                  paddingAll: '13px',
                 },
               },
             ],
